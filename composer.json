@@ -1,0 +1,30 @@
+{
+    "name": "wearejust/user-bundle",
+    "description": "User bundle for Employees",
+    "type": "symfony-bundle",
+    "license": "GNU GPLv3",
+    "authors": [
+        {
+            "name": "Cees van Egmond",
+            "email": "cees.vanegmond@wearejust.com"
+        },
+        {
+            "name": "John in 't Hout",
+            "email": "john.inthout@wearejust.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wearejust\\UserBundle\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "sonata-project/user-bundle": "4.x-dev",
+        "symfony/framework-bundle": "~2.7|~3.0"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    }
+}
