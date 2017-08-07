@@ -1,8 +1,8 @@
 {
     "name": "wearejust/user-bundle",
-    "description": "User bundle for Employees",
+    "description": "Small wrapper for sonata user packages",
     "type": "symfony-bundle",
-    "license": "GNU GPLv3",
+    "license": "MIT",
     "authors": [
         {
             "name": "Cees van Egmond",
