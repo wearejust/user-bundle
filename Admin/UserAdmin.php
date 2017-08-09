@@ -2,6 +2,7 @@
 
 namespace Wearejust\UserBundle\Admin;
 
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Admin\Entity\UserAdmin as BaseUserAdmin;
@@ -9,6 +10,18 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class UserAdmin extends BaseUserAdmin
 {
+    /**
+     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        parent::configureRoutes($collection);
+
+        $collection->remove('show');
+        $collection->remove('export');
+        $collection->remove('batch');
+    }
+
     /**
      * Disable all export formats by default, off course you can override this
      * action when needed.

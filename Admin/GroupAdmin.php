@@ -2,11 +2,24 @@
 
 namespace Wearejust\UserBundle\Admin;
 
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\UserBundle\Admin\Entity\GroupAdmin as BaseGroupAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class GroupAdmin extends BaseGroupAdmin
 {
+    /**
+     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        parent::configureRoutes($collection);
+
+        $collection->remove('show');
+        $collection->remove('export');
+        $collection->remove('batch');
+    }
+
     /**
      * Disable all export formats by default, off course you can override this
      * action when needed.
