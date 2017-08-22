@@ -56,7 +56,6 @@ class UserAdmin extends BaseUserAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('username')
             ->add('email')
             ->add('enabled', null, array('editable' => true))
         ;
