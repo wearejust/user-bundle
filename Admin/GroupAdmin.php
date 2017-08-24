@@ -9,6 +9,17 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 class GroupAdmin extends BaseGroupAdmin
 {
     /**
+     * @param array $actions
+     *
+     * @return array
+     */
+    protected function configureBatchActions($actions)
+    {
+        unset($actions['delete']);
+
+        return parent::configureBatchActions($actions);
+    }
+    /**
      * @param \Sonata\AdminBundle\Route\RouteCollection $collection
      */
     protected function configureRoutes(RouteCollection $collection)
