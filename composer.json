@@ -19,9 +19,7 @@
         }
     },
     "require": {
-        "php": ">=7.0",
-        "sonata-project/user-bundle": "4.x-dev",
-        "symfony/framework-bundle": "~2.7|~3.0"
+        "sonata-project/user-bundle": "^4.0"
     },
     "extra": {
         "branch-alias": {
