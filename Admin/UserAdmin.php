@@ -54,18 +54,16 @@ class UserAdmin extends BaseUserAdmin
      * https://sonata-project.org/bundles/admin/master/doc/reference/action_list.html
      *
      * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $filterMapper
-     *
-     * @return \Sonata\AdminBundle\Datagrid\DatagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $filterMapper)
+    protected function configureDatagridFilters(DatagridMapper $filterMapper): void
     {
-        return $filterMapper;
+        //
     }
-    
+
     /**
      * {@inheritdoc}
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
             ->add('email')
@@ -82,7 +80,7 @@ class UserAdmin extends BaseUserAdmin
     /**
      * @param \Sonata\AdminBundle\Form\FormMapper $formMapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->with('General')

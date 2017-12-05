@@ -51,11 +51,9 @@ class GroupAdmin extends BaseGroupAdmin
      * https://sonata-project.org/bundles/admin/master/doc/reference/action_list.html
      *
      * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $filterMapper
-     *
-     * @return \Sonata\AdminBundle\Datagrid\DatagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $filterMapper)
+    protected function configureDatagridFilters(DatagridMapper $filterMapper): void
     {
-        return $filterMapper;
+        //
     }
 }
