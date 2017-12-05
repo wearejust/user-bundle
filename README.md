@@ -5,6 +5,8 @@ This package is basically a small wrapper around Sonata User bundle
 Installation
 ============
 
+__Hint:__ Coming from 0.x? Please check out our [upgrade guide](UPGRADE-1.0.md)
+
 Step 1: Download the Bundle
 ---------------------------
 
