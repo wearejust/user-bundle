@@ -12,7 +12,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require wearejust/user-bundle "~0.1"
+$ composer require wearejust/user-bundle "^1.0"
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -47,7 +47,62 @@ class AppKernel extends Kernel
 }
 ```
 
-Step 3: Configure
+Step 3: Define your User/Group Entity
+-------------------------
+
+```php
+// User
+
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Sonata\UserBundle\Entity\BaseUser;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+}
+
+```
+
+```php
+// Group
+
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Sonata\UserBundle\Entity\BaseGroup;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user_group")
+ */
+class Group extends BaseGroup
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+}
+
+```
+
+Step 4: Configure
 -------------------------
 
 ```yml
@@ -56,10 +111,10 @@ Step 3: Configure
 fos_user:
     db_driver:      orm
     firewall_name:  main
-    user_class:     'Wearejust\UserBundle\Entity\User'
+    user_class:     'Path\To\Custom\User\Entity'
 
     group:
-        group_class: 'Wearejust\UserBundle\Entity\Group'
+        group_class: 'Path\To\Custom\Group\Entity'
         group_manager: sonata.user.orm.group_manager
 
     service:
@@ -72,8 +127,8 @@ fos_user:
 
 sonata_user:
     class:
-        user: 'Wearejust\UserBundle\Entity\User'
-        group: 'Wearejust\UserBundle\Entity\Group'
+        user: 'Path\To\Custom\User\Entity'
+        group: 'Path\To\Custom\Group\Entity'
 
     admin:
         user:
