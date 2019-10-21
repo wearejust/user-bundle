@@ -70,7 +70,7 @@ class UserAdmin extends BaseUserAdmin
             ->add('enabled', null, array('editable' => true))
         ;
 
-        if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
+        if ($this->isGranted('ROLE_SUPER_ADMIN')) {
             $listMapper
                 ->add('impersonating', 'string', array('template' => 'SonataUserBundle:Admin:Field/impersonating.html.twig'))
             ;
@@ -105,11 +105,11 @@ class UserAdmin extends BaseUserAdmin
                 ])
             ->end()
             ->with('Security')
-                ->add('groups', 'Sonata\AdminBundle\Form\Type\ModelType', [
-                    'required' => false,
-                    'expanded' => true,
-                    'multiple' => true,
-                ])
+//                ->add('groups', 'Sonata\AdminBundle\Form\Type\ModelType', [
+//                    'required' => false,
+//                    'expanded' => true,
+//                    'multiple' => true,
+//                ])
                 ->add('realRoles', 'Sonata\UserBundle\Form\Type\SecurityRolesType', [
                     'label' => 'form.label_roles',
                     'expanded' => false,
